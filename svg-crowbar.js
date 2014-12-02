@@ -221,6 +221,7 @@
     }
 
     function processStyleSheet(ss) {
+      ss.cssRules = ss.rules || ss.cssRules;
       if (ss.cssRules) {
         for (var i = 0; i < ss.cssRules.length; i++) {
           var rule = ss.cssRules[i];

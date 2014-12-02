@@ -221,6 +221,14 @@
     }
 
     function processStyleSheet(ss) {
+      try {
+        if(!ss.cssRules)
+            return;         
+      } catch(e) {
+        if(e.name !== 'SecurityError')
+            throw e;        
+        return;     
+      }  
       ss.cssRules = ss.rules || ss.cssRules;
       if (ss.cssRules) {
         for (var i = 0; i < ss.cssRules.length; i++) {
